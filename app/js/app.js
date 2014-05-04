@@ -7,8 +7,8 @@ require.config({
         data: './data',
         lib: './lib',
         view: './view',
-        chart: './chart',
         template: './template',
+        article: './article',
         extension: './extension'
     }
 });

@@ -4875,6 +4875,7 @@ _.mixin({
                 transitionOut: '',
                 onOpen: false,
                 onClose: false,
+                destroyOnClose: true,
                 zIndex: function () {
                     return (function (value) {
                         return value === -Infinity ? 0 : value + 1;
@@ -4945,6 +4946,12 @@ _.mixin({
                 });
 
                 $modal.bind('closeModal', function () {
+                    if (o.destroyOnClose) {
+                        $modal.remove();
+                        $overlay.remove();
+                        return;
+                    }
+
                     if(o.transitionIn !== '' && o.transitionOut !== ''){
                         $modal.removeClass(o.transitionIn).addClass(o.transitionOut);
                         $modal.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){

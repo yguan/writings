@@ -49,9 +49,16 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
             });
         }
 
-        function setArticleLinkClickHandler() {
-            $('.article-link').on('click', function (evt) {
-                var articleContainerClass = $(evt.target).data('class');
+        function loadArticle(articleFileName, $body) {
+            require(['lib/text!article/' + articleFileName], function (content) {
+                var articleContainerClass = 'article-container';
+
+                $('<div></div>')
+                    .addClass(articleContainerClass)
+                    .append(content)
+                    .hide()
+                    .appendTo($body);
+
                 $('.' + articleContainerClass)
                     .easyModal({
                         autoOpen: true,
@@ -60,11 +67,21 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
             });
         }
 
+        function setArticleLinkClickHandler($body) {
+            $('.article-link').on('click', function (evt) {
+                var $target = $(evt.target),
+                    articleFileName = $target.data('article');
+
+                loadArticle(articleFileName, $body);
+            });
+        }
+
         exports.render = function () {
+            var $body = $('body');
             allPages.render('#viewport');
             setMenuClickHandler();
             setInitialActiveMenuItem();
-            setArticleLinkClickHandler();
+            setArticleLinkClickHandler($body);
 
             $('#stages').fullContent({
                 children: '.stage',
