@@ -154,9 +154,11 @@ h4 {
   margin-top: 5px;
 }
 .section .article {
-  margin: 0 30px 40px 0;
+  margin: 0 20px 20px 0;
   padding: 20px;
+  width: 450px;
   border: solid 1px gray;
+  display: inline-block;
 }
 .section .title {
   font-size: 20px;
