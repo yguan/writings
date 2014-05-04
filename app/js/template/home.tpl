@@ -1,5 +1,5 @@
 <ul id="menu">
-    <li><a href="#testing">Test Automation</a></li>
+    <li><a href="#test-automation">Test Automation</a></li>
 </ul>
 
 <div id="stages">

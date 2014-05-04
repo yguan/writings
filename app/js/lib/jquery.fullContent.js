@@ -32,6 +32,14 @@
     this.configStage();
   }
 
+    function getHashWithoutQueryStr() {
+        var hash = window.location.hash,
+            questionMarkIndex = hash.indexOf('?'),
+            hashWithoutQueryString = questionMarkIndex > 0 ? hash.substr(0, questionMarkIndex) : hash,
+            hash = hashWithoutQueryString.replace(/^#\/?/,'');
+        return hash;
+    }
+
   Plugin.prototype.configStage = function () {
 
   	var winwidth = this.$window.width(),
@@ -67,7 +75,7 @@
 
   	//Ajust the browser viewport to actual stage
   	if (window.location.hash) {
-  		var hash = window.location.hash.replace(/^#\/?/,'');
+  		var hash = getHashWithoutQueryStr();
   		$.scrollTo('#' + this.options.idComplement + hash , 0 );
   	}
 
@@ -108,7 +116,7 @@
     });
 
     this.$window.bind( 'hashchange', function( event ){
-      var hash = window.location.hash.replace(/^#\/?/,'');
+        var hash = getHashWithoutQueryStr();
       $.scrollTo('#'+self.options.idComplement+hash, speed );
     });
 

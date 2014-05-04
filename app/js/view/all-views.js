@@ -21,7 +21,7 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
         }
 
         function setInitialActiveMenuItem() {
-            var $activeMenuAnchor = $('#menu a[href=' + window.location.hash + ']'),
+            var $activeMenuAnchor = $('#menu a[href=' + getPageSelector(window.location.hash) + ']'),
                 $activeMenuLi = $activeMenuAnchor.length > 0 ? $activeMenuAnchor.parent('li') : getMenuLis().first();
             if ($activeMenuLi) {
                 $activeMenuLi.addClass('active');
@@ -29,7 +29,9 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
         }
 
         function getPageSelector(hash) {
-            return hash.replace('#', '#' + pageIdPrefix);
+            var questionMarkIndex = hash.indexOf('?'),
+                hashWithoutQueryString = questionMarkIndex > 0 ? hash.substr(0, questionMarkIndex) : hash;
+            return hashWithoutQueryString.replace('#', '#' + pageIdPrefix);
         }
 
         function setMenuClickHandler() {
@@ -47,10 +49,22 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
             });
         }
 
+        function setArticleLinkClickHandler() {
+            $('.article-link').on('click', function (evt) {
+                var articleContainerClass = $(evt.target).data('class');
+                $('.' + articleContainerClass)
+                    .easyModal({
+                        autoOpen: true,
+                        overlayOpacity: 0.3
+                    });
+            });
+        }
+
         exports.render = function () {
             allPages.render('#viewport');
             setMenuClickHandler();
             setInitialActiveMenuItem();
+            setArticleLinkClickHandler();
 
             $('#stages').fullContent({
                 children: '.stage',
