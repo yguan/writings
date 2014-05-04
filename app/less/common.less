@@ -1,0 +1,106 @@
+// Variables
+
+// Mixins
+
+.rounded-corners (@radius: 10px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+.box-shadow (@blur: 15px, @rgba: rgba(0, 0, 0, .8)) {
+  -webkit-box-shadow: 0 0 @blur @rgba;
+  -moz-box-shadow: 0 0 @blur @rgba;
+  box-shadow: 0 0 @blur @rgba;
+}
+
+.no-box-shadow () {
+  -webkit-box-shadow: 'none';
+  -moz-box-shadow: 'none';
+  box-shadow: 'none';
+}
+
+.white-text {
+  color: white;
+}
+
+.black-text {
+  color: #000000;
+}
+
+.gray-text {
+  color: #263f3f
+}
+
+.gray-border {
+  border: solid 1px gray;
+}
+
+.no-border {
+  border: none;
+}
+
+.default-font-size {
+  font-size: 16px;
+}
+
+.button-font-size {
+  font-size: 14px;
+}
+
+.white-background {
+  background-color: white;
+}
+
+.whitesmoke-background {
+  background-color: whitesmoke;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.default-line-height {
+  line-height: 140%;
+}
+
+.cusor-pointer {
+  cursor: default;
+}
+
+.cursor-hand {
+  cursor: pointer;
+}
+
+.no-outline {
+  outline: none;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.circular {
+  .rounded-corners(50%);
+  .box-shadow(@blur: 8px);
+}
+
+.hidden {
+  display: none;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: lightgray;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: gray;
+}
