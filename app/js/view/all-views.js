@@ -34,6 +34,13 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
             return hashWithoutQueryString.replace('#', '#' + pageIdPrefix);
         }
 
+        function getQueryParameter(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(window.location.hash);
+            return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
         function setMenuClickHandler() {
             var $menuLis = getMenuLis(),
                 $anchor,
@@ -49,8 +56,8 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
             });
         }
 
-        function loadArticle(articleFileName, $body) {
-            require(['lib/text!article/' + articleFileName], function (content) {
+        function loadArticle(articleId, $body) {
+            require(['lib/text!article/' + articleId + '.md'], function (content) {
                 var articleContainerClass = 'article-container';
 
                 $('<div></div>')
@@ -67,20 +74,30 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
             });
         }
 
+        function setInitialArticle($body) {
+            var articleId = getQueryParameter('article');
+
+            if (articleId) {
+                loadArticle(articleId, $body);
+            }
+        }
+
         function setArticleLinkClickHandler($body) {
             $('.article-link').on('click', function (evt) {
-                var $target = $(evt.target),
-                    articleFileName = $target.data('article');
+                var $target = $(evt.target);
 
-                loadArticle(articleFileName, $body);
+                loadArticle($target.data('article'), $body);
             });
         }
 
         exports.render = function () {
             var $body = $('body');
             allPages.render('#viewport');
-            setMenuClickHandler();
+
             setInitialActiveMenuItem();
+            setInitialArticle($body);
+
+            setMenuClickHandler();
             setArticleLinkClickHandler($body);
 
             $('#stages').fullContent({
