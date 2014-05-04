@@ -19,6 +19,7 @@ module.exports = {
             '<%= folder.src %>/js/lib/jquery.scrollTo.js',
             '<%= folder.src %>/js/lib/jquery.fullContent.js',
             '<%= folder.src %>/js/lib/jquery.easyModal.js',
+            '<%= folder.src %>/js/lib/marked.js',
             '<%= folder.src %>/js/lib/require.js'
         ],
         dest: '<%= folder.src %>/js/all-lib-no-d3.js'

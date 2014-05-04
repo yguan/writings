@@ -1,5 +1,5 @@
 /*jslint nomen: true*/
-/*global $,define,require,_ */
+/*global $,define,require,_, marked */
 
 define(['exports', 'view/all-pages'], function (exports, allPages) {
         'use strict';
@@ -58,11 +58,12 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
 
         function loadArticle(articleId, $body) {
             require(['lib/text!article/' + articleId + '.md'], function (content) {
-                var articleContainerClass = 'article-container';
+                var articleContainerClass = 'article-container',
+                    articleHtml = marked(content);
 
                 $('<div></div>')
                     .addClass(articleContainerClass)
-                    .append(content)
+                    .append(articleHtml)
                     .hide()
                     .appendTo($body);
 
