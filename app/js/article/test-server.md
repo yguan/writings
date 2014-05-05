@@ -20,7 +20,7 @@ Well-structure client-side code may be easy to test with mocks, but mocks are us
 Even if mocking for unit tests is not a problem, mocking for integration tests is still a nightmare, because so many ajax calls have to be mocked so that the application can reach to the state that can be tested.
 
 **Test Server Architecture Diagram**
-<br/><img src="../img/test-server.png"></img>
+<br/><img src="img/test-server.png"></img>
 
 ## The Proposed Solution
 
