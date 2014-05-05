@@ -8,6 +8,7 @@ module.exports = {
                     '*.html',
                     '*.png',
                     '*.js',
+                    'js/article/**',
                     'fonts/**',
                     'img/**'
                 ],
