@@ -1,0 +1,22 @@
+Title: A workflow for response data is not found in the test server's database
+
+UAT Test->Browser: drive
+Browser->Client Side Code: execute
+Client Side Code->Test Server: send http request
+Test Server->Test Server DB: get response data
+Test Server DB-->Test Server: response data not found
+Test Server->Actual Server: send http request
+Actual Server-->Test Server: return response data
+Test Server-->Browser: return response data
+Test Server->Test Server DB: save response data
+
+
+
+Title: A workflow for response data is found in the test server's database
+
+UAT Test->Browser: drive
+Browser->Client Side Code: execute
+Client Side Code->Test Server: send http request
+Test Server->Test Server DB: get response data
+Test Server DB-->Test Server: return response data
+Test Server-->Browser: return response data
