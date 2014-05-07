@@ -179,3 +179,7 @@ h4 {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
+.article-container h1,
+.article-container h2 {
+  border-bottom: 1px solid #ddd;
+}

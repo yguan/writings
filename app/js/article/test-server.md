@@ -1,5 +1,6 @@
 # How to create a test server to mock a Web server
 
+Author: Yong Guan<br/>
 Date Created: May 4th, 2014
 
 ## Overview
@@ -23,6 +24,7 @@ Even if mocking for unit tests is not a problem, mocking for integration tests i
 
 **Test Server Architecture Diagram**
 <br/><img src="img/test-server.png"></img>
+
 
 ## The Proposed Solution
 
@@ -56,6 +58,7 @@ Here are two sequence diagrams that depict the interactions between components f
 3. It eliminates the need to write mocks when writing integration tests for client-side code.
 4. It can implement certain randomized behaviors to mimic sever overload or failure situations.
 
+
 ## The Implementation
 
 **Set up the test server that can handle http requests and interact with database.**
@@ -67,5 +70,6 @@ Here are two sequence diagrams that depict the interactions between components f
 **Enable the test server to update all stored requests' response data by sending requests to the actual Web server.**
 
 **Enable the test server to create report that show the differences of responses data.**
+
 
 ## Conclusion
