@@ -1,0 +1,26 @@
+http://www.gojs.net/latest/index.html
+http://www.jointjs.com/
+http://bramp.github.io/js-sequence-diagrams/
+http://www.draw2d.org/draw2d/examples/examples.html
+
+
+-- database --
+http://pouchdb.com/
+https://github.com/rvagg/node-levelup
+https://github.com/louischatriot/nedb
+http://sailsjs.org/#!documentation/Database-Support
+
+
+-- levelDB --
+https://github.com/rvagg/node-levelup
+https://github.com/rvagg/node-levelup/wiki/Modules
+https://github.com/ricardobeat/levelhud
+https://github.com/hij1nx/levelweb
+
+-- node.js server framework --
+http://mcavage.me/node-restify
+http://actionherojs.com/
+http://frisbyjs.com/
+
+http://nodeframework.com/
+http://designzum.com/2014/02/23/10-best-node-js-mvc-frameworks-for-javascript-developers/
