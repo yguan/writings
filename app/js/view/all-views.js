@@ -21,17 +21,21 @@ define(['exports', 'view/all-pages'], function (exports, allPages) {
         }
 
         function setInitialActiveMenuItem() {
-            var $activeMenuAnchor = $('#menu a[href=' + getPageSelector(window.location.hash) + ']'),
+            var $activeMenuAnchor = $('#menu a[href=' + getHashWithoutQueryString(window.location.hash) + ']'),
                 $activeMenuLi = $activeMenuAnchor.length > 0 ? $activeMenuAnchor.parent('li') : getMenuLis().first();
             if ($activeMenuLi) {
                 $activeMenuLi.addClass('active');
             }
         }
 
-        function getPageSelector(hash) {
+        function getHashWithoutQueryString(hash) {
             var questionMarkIndex = hash.indexOf('?'),
                 hashWithoutQueryString = questionMarkIndex > 0 ? hash.substr(0, questionMarkIndex) : hash;
-            return hashWithoutQueryString.replace('#', '#' + pageIdPrefix);
+            return hashWithoutQueryString;
+        }
+
+        function getPageSelector(hash) {
+            return getHashWithoutQueryString(hash).replace('#', '#' + pageIdPrefix);
         }
 
         function getQueryParameter(name) {
