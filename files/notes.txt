@@ -3,6 +3,16 @@ http://www.jointjs.com/
 http://bramp.github.io/js-sequence-diagrams/
 http://www.draw2d.org/draw2d/examples/examples.html
 
+-- http proxy --
+http://blog.nodejitsu.com/node-http-proxy-1dot0/
+https://github.com/nodejitsu/node-http-proxy
+http://www.catonmat.net/http-proxy-in-nodejs/
+https://github.com/pkrumins/nodejs-proxy
+
+-- http client --
+http://unirest.io/
+https://github.com/mikeal/request
+
 
 -- database --
 http://pouchdb.com/
