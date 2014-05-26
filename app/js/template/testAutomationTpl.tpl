@@ -5,4 +5,10 @@
             <a class="article-link" data-article="test-server" href="#test-automation?article=test-server">read more</a>
         </div>
     </div>
+    <div class="article">
+        <div class="title">How to write end-to-end UI automation tests that run in a browser</div>
+        <div class="summary">This article presents a way to write end-to-end UI automation tests that can be run in a browser directly. 
+            <a class="article-link" data-article="browser-tests" href="#test-automation?article=browser-tests">read more</a>
+        </div>
+    </div>
 </div>

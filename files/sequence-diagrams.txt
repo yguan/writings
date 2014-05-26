@@ -20,3 +20,14 @@ Client Side Code->Test Server: send http request
 Test Server->Test Server DB: get response data
 Test Server DB-->Test Server: return response data
 Test Server-->Browser: return response data
+
+
+
+Title: end-to-end test in cross domain
+
+Agent->Primary window: open
+Primary window->Site Under Test: load
+Agent->Primary window: inject JavaScript tests
+JavaScript Tests->Popup window: open
+Popup window->Site Under Test: load
+JavaScript Tests->Popup window: manipulate
